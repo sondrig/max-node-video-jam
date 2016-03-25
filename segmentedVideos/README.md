@@ -1,0 +1,1 @@
+After running the `node segment_videos`, the files go here

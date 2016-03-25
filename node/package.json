@@ -1,0 +1,23 @@
+{
+  "name": "rad-tag",
+  "version": "0.1.0",
+  "main": "entry.js",
+  "dependencies": {
+    "lodash": "*",
+    "bluebird": "latest",
+    "ytdl-core": "*",
+    "readdir": "latest",
+    "request": "latest",
+    "rimraf": "latest",
+    "string": "latest",
+    "ws": "latest",
+    "shelljs": "*",
+    "readdir": "^0.0.13",
+    "omgosc": "latest",
+    "fs-extra": "latest",
+    "yargs": "latest",
+    "colors": "latest",
+    "three-fx-composer":"*",
+    "@stinkdigital/sono":"latest"
+  }
+}

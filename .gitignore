@@ -1,0 +1,12 @@
+.DS_Store
+*.sublime-*
+.idea/
+node_modules
+bower_components
+npm-debug.log
+*.sass-cache
+*.scssc
+*.pyc
+*.AVI
+*.mov
+*.mp4

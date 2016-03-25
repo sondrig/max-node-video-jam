@@ -1,0 +1,96 @@
+<jittershader name="lumasker">
+	<description>
+	chroma
+	</description>
+     <param name="tex0" type="int" default="0" />
+	 <param name="tex1" type="int" default="1" />
+	 <param name="bitSize" type="float" default="16.0" />
+	<language name="glsl" version="1.0">
+     	<bind param="tex0" program="fp" />
+		<bind param="tex1" program="fp" />
+		<bind param="bitSize" program="fp" />
+		<program name="vp" type="vertex">
+			<![CDATA[
+				
+				
+				varying vec4 position;
+				varying vec2 texcoord0;
+				varying vec2 texcoord1;
+				varying vec2 texcoord2;
+				varying vec2 texcoord3;
+				varying vec2 texcoord4;
+				varying vec2 texcoord5;
+				varying vec2 texcoord6;
+				varying vec2 texcoord7;
+				
+				varying mat4 tex00;
+				varying mat4 tex33;
+			 	
+				vec3 translatePoint(vec3 v, vec3 o) {
+  					return v - o;
+				}
+				
+				void main(void) {
+			   		gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+    
+					// transform texcoords
+					//tex00= gl_TextureMatrix[0];
+					//tex00[0] *= vec4(2.0, 0.0, 0.0, 0.0);
+					//tex00[1] *= vec4(0.0, 1.0, 0.0, 0.0);
+					//tex00[2] *= vec4(0., 0.0, 1.0, 0.0);
+					//tex00[3] *= vec4(0.0, 1.5, 0.0, 1.0);
+					
+					//tex33= gl_TextureMatrix[2];
+					//tex33[0] *= vec4(2., 0.0, 0.0, 0.0);
+					//tex33[1] *= vec4(0.0, 1.0, 0.0, 0.0);
+					//tex33[2] *= vec4(0.0, 0.0, 1.0, 0.0);
+					//tex33[3] *= vec4(0.0, 1.0, 0.0, 1.0);
+					
+					//tex00 *= mat4(  1.0, 0.0, 0.0, 0.0,
+					//			    0.0, 1.0, 0.0, 0.0,
+					//				0.0, 0.0, 1.0, 0.0,
+					//				0.0, 0.0, 0.0, 1.0
+					//			);
+					
+					//tex00 = tex00 * vec4(0.5,0.5,0.5,1.);
+					texcoord0 = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);
+					texcoord1 = vec2(gl_TextureMatrix[1] * gl_MultiTexCoord1);
+					texcoord2 = vec2(gl_TextureMatrix[2] * gl_MultiTexCoord2);
+					texcoord3 = vec2(gl_TextureMatrix[3] * gl_MultiTexCoord3);
+					texcoord4 = vec2(gl_TextureMatrix[4] * gl_MultiTexCoord4);
+					texcoord5 = vec2(gl_TextureMatrix[5] * gl_MultiTexCoord5);
+					texcoord6 = vec2(gl_TextureMatrix[6] * gl_MultiTexCoord6);
+					texcoord7 = vec2(gl_TextureMatrix[7] * gl_MultiTexCoord7);
+				}
+				
+				
+			]]>
+		</program>
+		<program name="fp" type="fragment">
+			<![CDATA[
+
+			// define our varying texture coordinates
+			varying vec2 texcoord0;
+			varying vec2 texcoord1;
+	
+			// define our rectangular texture samplers
+			uniform sampler2DRect tex0;
+			uniform sampler2DRect tex1;
+			
+			uniform float bitSize;
+
+			void main (void)
+			{
+				vec3 color = texture2DRect(tex0, texcoord0).rgb;
+				float n = pow(bitSize,2.0);
+        		float newR = floor(color.r*n)/n;
+        		float newG = floor(color.g*n)/n;
+        		float newB = floor(color.b*n)/n;
+				gl_FragColor = vec4( vec3(newR,newG,newB), 1.0);
+		
+			}
+
+			]]>
+		</program>
+	</language>
+</jittershader>
