@@ -6,6 +6,11 @@ You might all have laughed about some videos on youtube, have some vacation foot
 
 Record your jam with video, unexpectedly
 
+[![](http://img.youtube.com/vi/51r0sM-kLA0/0.jpg)](http://www.youtube.com/watch?v=51r0sM-kLA0)
+
+[![](http://img.youtube.com/vi/Q76-CJuyCJY/0.jpg)](http://www.youtube.com/watch?v=Q76-CJuyCJY?t=223)
+
+
 ------------
 
 You need:
