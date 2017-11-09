@@ -1,4 +1,4 @@
-#Spread the video jam
+# Spread the video jam
 
 You might have your pals over for some instrument foolin'
 
@@ -22,7 +22,7 @@ The MaxMsp patch supports channels 1-8.
 Run a MaxMsp patch that will listen over OSC for videos to play.
 
 
-##Prereqs
+## Prereqs
 
 MacOS instructions only.
 
@@ -31,19 +31,19 @@ MacOS instructions only.
 - ffmpeg `brew install ffmpeg`
 - node `brew install node`
 
-##How to run
+## How to run
 
 - `cd node`
 - `npm i`
 
-#####You can download youtube playlists by:
+##### You can download youtube playlists by:
 
 - `cd node`
 - `node playlist_downloader.js -p <playlistId>`
 
 The videos will be downloaded to _rawVideos_. You can also just copy video files you want to use in to _rawVideos_.
 
-#####Segment the videos into small files
+##### Segment the videos into small files
 
 -	`cd node`
 -	`node segment_videos.js` //options are available inside the file
@@ -51,7 +51,7 @@ The videos will be downloaded to _rawVideos_. You can also just copy video files
 Once this is done copy the video files into the folder 0-5 ![](http://i.imgur.com/u9iAiDW.png)
 
 
-######Start the OSC sender 
+###### Start the OSC sender 
 
 -	`cd node`
 -	`node play_videos.js` 
